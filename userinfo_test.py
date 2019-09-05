@@ -40,7 +40,6 @@ class TestUserinfo(unittest.TestCase):
             '''
             Userinfo.users_list = []        
 # Items up here...
-
     def test_save_multiple_userinfo(self):
             '''
             test_save_multiple_userinfo to check if we can save multiple users
@@ -51,6 +50,5 @@ class TestUserinfo(unittest.TestCase):
             test_userinfo.save_userinfo()
             self.assertEqual(len(Userinfo.users_list),2)        
         
-
 if __name__ == '__main__':
     unittest.main()    
