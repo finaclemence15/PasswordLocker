@@ -22,4 +22,19 @@ class Userinfo:
         new_userinfo method saves userinfo objects into users_list
         '''
 
-        Userinfo.users_list.append(self)     
+        Userinfo.users_list.append(self)  
+        
+    @classmethod
+    def find_by_user_name(cls,user_name):
+        '''
+        Method that takes in a number and returns a user that matches that username.
+
+        Args:
+            user_name: user_name to search for
+        Returns :
+            Userinfo of person that matches the user_name.
+        '''
+
+        for userinfo in cls.users_list:
+            if userinfo.user_name == user_name:
+                return userinfo          

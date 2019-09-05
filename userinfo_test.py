@@ -48,7 +48,20 @@ class TestUserinfo(unittest.TestCase):
             self.new_userinfo.save_userinfo()
             test_userinfo = Userinfo("clement","125") # new contact
             test_userinfo.save_userinfo()
-            self.assertEqual(len(Userinfo.users_list),2)        
-        
+            self.assertEqual(len(Userinfo.users_list),2)   
+                 
+    def test_find_user_by_user_name(self):
+        '''
+        test to check if we can find a user by username  and display information
+        '''
+
+        self.new_userinfo.save_userinfo()
+        test_userinfo = Userinfo("clement","125") # new contact
+        test_userinfo.save_userinfo()
+
+        found_userinfo = Userinfo.find_by_user_name("clement")
+
+        self.assertEqual(found_userinfo.password,test_userinfo.password)   
+                 
 if __name__ == '__main__':
     unittest.main()    
