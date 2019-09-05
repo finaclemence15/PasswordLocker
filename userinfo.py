@@ -14,4 +14,12 @@ class Userinfo:
         self.user_name = user_name
         self.password = password
         
-    users_list = [] #empty users list    
+    users_list = [] #empty users list   
+ # Init method up here
+    def save_userinfo(self):
+
+        '''
+        new_userinfo method saves userinfo objects into users_list
+        '''
+
+        Userinfo.users_list.append(self)     

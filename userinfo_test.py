@@ -25,6 +25,32 @@ class TestUserinfo(unittest.TestCase):
 
         self.assertEqual(self.new_userinfo.user_name,"clemence")
         self.assertEqual(self.new_userinfo.password,"125")
+        
+    def test_save_userinfo(self):
+        '''
+        test_save_userinfo test case to test if the userinfo object is saved into
+        the users list
+        '''
+        self.new_userinfo.save_userinfo() # saving the new contact
+        self.assertEqual(len(Userinfo.users_list),1)
+# setup and class creation up here
+    def tearDown(self):
+            '''
+            tearDown method that does clean up after each test case has run.
+            '''
+            Userinfo.users_list = []        
+# Items up here...
+
+    def test_save_multiple_userinfo(self):
+            '''
+            test_save_multiple_userinfo to check if we can save multiple users
+            objects to our users_list
+            '''
+            self.new_userinfo.save_userinfo()
+            test_userinfo = Userinfo("clement","125") # new contact
+            test_userinfo.save_userinfo()
+            self.assertEqual(len(Userinfo.users_list),2)        
+        
 
 if __name__ == '__main__':
     unittest.main()    
