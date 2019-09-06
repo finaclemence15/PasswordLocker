@@ -74,14 +74,7 @@ class TestUserinfo(unittest.TestCase):
 
         userinfo_exists = Userinfo.userinfo_exist("clement")
 
-        self.assertTrue(userinfo_exists)
-        
-    def test_display_all_userinfo(self):
-        '''
-        method that returns a list of all users saved
-        '''
-
-        self.assertEqual(Userinfo.display_userinfo(),Userinfo.users_list)           
+        self.assertTrue(userinfo_exists)         
                  
 if __name__ == '__main__':
     unittest.main()    

@@ -53,10 +53,3 @@ class Userinfo:
                     return True
 
         return False
-    
-    @classmethod
-    def display_userinfo(cls):
-        '''
-        method that returns the users list
-        '''
-        return cls.users_list    
