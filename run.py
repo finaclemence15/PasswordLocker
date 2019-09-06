@@ -13,4 +13,9 @@ def save_userinfo(userinfo):
     '''
     userinfo.save_userinfo()
     
+def check_existing_userinfo(user_name):
+    '''
+    Function that check if a user exists with that username and return a Boolean
+    '''
+    return Userinfo.userinfo_exist(user_name)    
     
