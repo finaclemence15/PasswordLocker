@@ -6,3 +6,11 @@ def create_userinfo(username, password):
     '''
     new_userinfo = Userinfo(username, password)
     return new_userinfo
+
+def save_userinfo(userinfo):
+    '''
+    Function to save user
+    '''
+    userinfo.save_userinfo()
+    
+    
