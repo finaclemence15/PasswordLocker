@@ -30,3 +30,10 @@ def create_credential(username,cred_application,cred_username,cred_password):
     '''
     new_credential = Credential(username,cred_application,cred_username,cred_password)
     return new_credential    
+
+
+def save_credential(credential):
+    '''
+    Function to save credential
+    '''
+    credential.save_credential()
