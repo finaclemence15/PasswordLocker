@@ -43,6 +43,26 @@ class TestCredential(unittest.TestCase):
         self.new_credential.save_credential() # saving the new contact
         self.assertEqual(len(Credential.credential_list),1)            
            
+    def test_save_multiple_credential(self):
+            '''
+            test_save_multiple_credential to check if we can save multiple credential
+            objects to our credential_list
+            '''
+            self.new_credential.save_credential()
+            test_credential = Credential("James","facebook","jk","abcd") # new contact
+            test_credential.save_credential()
+            self.assertEqual(len(Credential.credential_list),2)
+           
+    def test_delete_credential(self):
+            '''
+            test_delete_credential to test if we can remove a credential from our credential list
+            '''
+            self.new_credential.save_credential()
+            test_credential = Credential("James","facebook","jk","abcd") # new contact
+            test_credential.save_credential()
+
+            self.new_credential.delete_credentia()# Deleting a contact object
+            self.assertEqual(len(Credential.credential_list),1)           
          
 if __name__ == '__main__':
     unittest.main()        
