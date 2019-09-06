@@ -1,5 +1,8 @@
 #!/usr/bin/env python3.6
 from userinfo import Userinfo
+from credential import Credential
+
+###########users#################
 def create_userinfo(username, password):
     '''
     Function to create a new user
@@ -19,3 +22,11 @@ def check_existing_userinfo(user_name):
     '''
     return Userinfo.userinfo_exist(user_name)    
     
+    ##### Credential ######
+    
+def create_credential(username,cred_application,cred_username,cred_password):
+    '''
+    Function to create a new contact
+    '''
+    new_credential = Credential(username,cred_application,cred_username,cred_password)
+    return new_credential    
