@@ -25,11 +25,11 @@ def check_existing_userinfo(user_name):
     
     ##### Credential ######
     
-def create_credential(cred_application,cred_username,cred_password):
+def create_credential(cred_username,cred_application,cred_password):
     '''
     Function to create a new contact
     '''
-    new_credential = Credential(cred_application,cred_username,cred_password)
+    new_credential = Credential(cred_username,cred_application,cred_password)
     return new_credential    
 
 
@@ -46,11 +46,11 @@ def del_credential(credential):
     credential.delete_credential()
     
 
-def find_credential(username):
+def find_credential(cred_username):
     '''
     Function that finds a credential by username and returns the credential
     '''
-    return Credential.find_by_username(username)
+    return Credential.find_by_username(cred_username)
 
 
 def display_credential():
@@ -103,10 +103,10 @@ def main():
         if short_code == 'ac':
             print("Add credentials")
             print("-"*10)
-            print("Account type...")
-            cred_application=input()
             print("User name..")
             cred_username=input()
+            print("Account type...")
+            cred_application=input()
             # print("Password,,")
             # password=input()
 
@@ -126,9 +126,9 @@ def main():
             else:
                 print("Put a valid code")
 
-            save_credential(create_credential(cred_application,cred_username,cred_password))
+            save_credential(create_credential(cred_username,cred_application,cred_password))
             print('\n')
-            print(f"Credentials Account {cred_application} account's username {cred_username} with password {cred_password} added")
+            print(f"Credentials Account... \n username: {cred_username} \n Account: {cred_application} \n password: {cred_password}")
             print('\n')
         elif short_code == 'dc':
             if display_credential():
@@ -136,7 +136,7 @@ def main():
                 print('\n')
 
                 for credential in display_credential():
-                    print(f"{credential.cred_application}..{credential.cred_username} ..{credential.cred_password}")
+                    print(f" User Name: {credential.cred_username} \n Account Type: {credential.cred_application} \n Password:{credential.cred_password}")
                     print('\n')
             else:
                     print('\n')

@@ -16,7 +16,7 @@ class TestCredential(unittest.TestCase):
         Set up method to run before each test cases.
         '''
         # self.new_credential = Credential("James","facebook","jk","abcd") # create contact object
-        self.new_credential = Credential("facebook","jk","abcd")
+        self.new_credential = Credential("jk","facebook","abcd")
 
 
     def test_init(self):
@@ -25,8 +25,8 @@ class TestCredential(unittest.TestCase):
         '''
 
         # self.assertEqual(self.new_credential.username,"James")
-        self.assertEqual(self.new_credential.cred_application,"facebook")
         self.assertEqual(self.new_credential.cred_username,"jk")
+        self.assertEqual(self.new_credential.cred_application,"facebook")
         self.assertEqual(self.new_credential.cred_password,"abcd")
         
 # setup and class creation up here
@@ -51,7 +51,7 @@ class TestCredential(unittest.TestCase):
             '''
             self.new_credential.save_credential()
             # test_credential = Credential("James","facebook","jk","abcd") # new contact
-            test_credential = Credential("facebook","jk","abcd")
+            test_credential = Credential("jk","facebook","abcd")
             test_credential.save_credential()
             self.assertEqual(len(Credential.credential_list),2)
            
@@ -61,7 +61,7 @@ class TestCredential(unittest.TestCase):
             '''
             self.new_credential.save_credential()
             # test_credential = Credential("James","facebook","jk","abcd") # new contact
-            test_credential = Credential("facebook","jk","abcd") 
+            test_credential = Credential("jk","facebook","abcd") 
             test_credential.save_credential()
 
             self.new_credential.delete_credential()# Deleting a contact object
@@ -74,7 +74,7 @@ class TestCredential(unittest.TestCase):
 
         self.new_credential.save_credential()
         # test_credential = Credential("James","facebook","jk","abcd") # new contact
-        test_credential = Credential("facebook","jk","abcd") 
+        test_credential = Credential("jk","facebook","abcd") 
         test_credential.save_credential()
 
         found_credential = Credential.find_by_username("James")
