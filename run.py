@@ -89,6 +89,10 @@ def main():
         user_name=input()
         print("Enter your password")
         password=input()
+        user_exists = check_existing_userinfo(user_name)
+        if user_exists == user_name:
+           print(" ")
+           print(f'Welcome {user_name}. Please choose an option to continue.')
 
     else:
         print("User does not exist please create an account first")    
