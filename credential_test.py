@@ -15,7 +15,8 @@ class TestCredential(unittest.TestCase):
         '''
         Set up method to run before each test cases.
         '''
-        self.new_credential = Credential("James","facebook","jk","abcd") # create contact object
+        # self.new_credential = Credential("James","facebook","jk","abcd") # create contact object
+        self.new_credential = Credential("facebook","jk","abcd")
 
 
     def test_init(self):
@@ -23,7 +24,7 @@ class TestCredential(unittest.TestCase):
         test_init test case to test if the object is initialized properly
         '''
 
-        self.assertEqual(self.new_credential.username,"James")
+        # self.assertEqual(self.new_credential.username,"James")
         self.assertEqual(self.new_credential.cred_application,"facebook")
         self.assertEqual(self.new_credential.cred_username,"jk")
         self.assertEqual(self.new_credential.cred_password,"abcd")
@@ -49,7 +50,8 @@ class TestCredential(unittest.TestCase):
             objects to our credential_list
             '''
             self.new_credential.save_credential()
-            test_credential = Credential("James","facebook","jk","abcd") # new contact
+            # test_credential = Credential("James","facebook","jk","abcd") # new contact
+            test_credential = Credential("facebook","jk","abcd")
             test_credential.save_credential()
             self.assertEqual(len(Credential.credential_list),2)
            
@@ -58,7 +60,8 @@ class TestCredential(unittest.TestCase):
             test_delete_credential to test if we can remove a credential from our credential list
             '''
             self.new_credential.save_credential()
-            test_credential = Credential("James","facebook","jk","abcd") # new contact
+            # test_credential = Credential("James","facebook","jk","abcd") # new contact
+            test_credential = Credential("facebook","jk","abcd") 
             test_credential.save_credential()
 
             self.new_credential.delete_credential()# Deleting a contact object
@@ -70,12 +73,13 @@ class TestCredential(unittest.TestCase):
         '''
 
         self.new_credential.save_credential()
-        test_credential = Credential("James","facebook","jk","abcd") # new contact
+        # test_credential = Credential("James","facebook","jk","abcd") # new contact
+        test_credential = Credential("facebook","jk","abcd") 
         test_credential.save_credential()
 
         found_credential = Credential.find_by_username("James")
 
-        self.assertEqual(found_credential.username,test_credential.username)
+        self.assertEqual(found_credential.cred_username,test_credential.cred_username)
         
         
     def test_display_all_credential(self):

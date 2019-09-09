@@ -1,6 +1,7 @@
 #!/usr/bin/env python3.6
 from userinfo import Userinfo
 from credential import Credential
+import random
 
 ###########users#################
 def create_userinfo(username, password):
@@ -24,11 +25,11 @@ def check_existing_userinfo(user_name):
     
     ##### Credential ######
     
-def create_credential(username,cred_application,cred_username,cred_password):
+def create_credential(cred_application,cred_username,cred_password):
     '''
     Function to create a new contact
     '''
-    new_credential = Credential(username,cred_application,cred_username,cred_password)
+    new_credential = Credential(cred_application,cred_username,cred_password)
     return new_credential    
 
 
@@ -90,5 +91,69 @@ def main():
         password=input()
 
     else:
-        print("User does not exist please create an account first")        
+        print("User does not exist please create an account first")    
+#######################################credentials #############################
+    while True:
+
+        print("Welcome")
+
+
+        print("Please use these short codes to navigate: ac -add credentials, dc -display credentials, ex -exit the application")
+        short_code = input().lower()
+        if short_code == 'ac':
+            print("Add credentials")
+            print("-"*10)
+            print("Account type...")
+            cred_application=input()
+            print("User name..")
+            cred_username=input()
+            # print("Password,,")
+            # password=input()
+
+            print("You can choose to create your password or generate it ,if generate type g if create type c")
+            code=input().lower()
+
+            if code == 'c':
+                print("Enter your Password")
+                cred_password=input()
+
+                # print(f"Password: {Credential.password}"
+
+            elif code =='g':
+                s="abcdefghijklmnopqrstuvwxyz0123456789"
+                cred_password=''.join(random.choice(s) for _ in range(8))
+
+            else:
+                print("Put a valid code")
+
+            save_credential(create_credential(cred_application,cred_username,cred_password))
+            print('\n')
+            print(f"Credentials Account {cred_application} account's username {cred_username} with password {cred_password} added")
+            print('\n')
+        elif short_code == 'dc':
+            if display_credential():
+                print("Here is a list of your credentials")
+                print('\n')
+
+                for credential in display_credential():
+                    print(f"{credential.cred_application}..{credential.cred_username} ..{credential.cred_password}")
+                    print('\n')
+            else:
+                    print('\n')
+                    print("You don't have credentials saved yet")
+
+
+        elif short_code == 'ex':
+                print("Exiting the password locker")
+                break
+
+        else:
+
+                print("Please use a valid code")
+
+
+            
+        
+if __name__ == '__main__':
+    main()        
     

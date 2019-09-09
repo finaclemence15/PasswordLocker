@@ -4,7 +4,8 @@ class Credential:
     """  
     credential_list = []  
     
-    def __init__(self,username,cred_application,cred_username,cred_password):
+    # def __init__(self,username,cred_application,cred_username,cred_password):
+    def __init__(self,cred_application,cred_username,cred_password):    
 
         '''
         __init__ method that helps us define properties for our objects.
@@ -18,7 +19,7 @@ class Credential:
         
       # docstring removed for simplicity
 
-        self.username = username
+        # self.username = username
         self.cred_application = cred_application
         self.cred_username = cred_username
         self.cred_password = cred_password
@@ -41,7 +42,7 @@ class Credential:
         Credential.credential_list.remove(self)     
         
     @classmethod
-    def find_by_username(cls,username):
+    def find_by_username(cls,cred_username):
         '''
         Method that takes in a username and returns a credential that matches that username.
 
@@ -52,7 +53,8 @@ class Credential:
         '''
 
         for credential in cls.credential_list:
-            if credential.username == username:
+            # if credential.username == username:
+            if credential.cred_username == cred_username:    
                 return credential                
         
     
