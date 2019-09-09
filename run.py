@@ -89,7 +89,7 @@ def main():
         user_name=input()
         print("Enter your password")
         password=input()
-        user_exists = check_existing_userinfo(user_name)
+        user_exists = (user_name)
         if user_exists == user_name:
            print(" ")
            print(f'Welcome {user_name}. Please choose an option to continue.')
@@ -102,7 +102,7 @@ def main():
         print("Welcome")
 
 
-        print("Please use these short codes to navigate: ac -add credentials, dc -display credentials, ex -exit the application")
+        print("Please use these short codes to navigate: ac -add credentials, dc -display credentials,dl -delete Credentials, ex -exit the application")
         short_code = input().lower()
         if short_code == 'ac':
             print("Add credentials")
@@ -145,8 +145,27 @@ def main():
             else:
                     print('\n')
                     print("You don't have credentials saved yet")
+                    print("\n")
 
-
+        elif short_code == 'dl':
+                print("       Delete Credential")
+                print("     "+"="*20)
+                print('\n')
+                cred_application = input("Enter cred_application Name:")
+                found_credential = find_credential(cred_application)
+                if found_credential:
+                    print(f"Here are the credentials for {found_credential.cred_application}:")
+                    print(f"User Account: {found_credential.cred_username}")
+                    print(f"Password: {found_credential.cred_password}")
+                if    input("Are you sure you want to delete it? (Y/N)").lower() == "Y":
+                    del_credential(cred_application)
+                    print()
+                    print("Press Enter to continue")
+                    input(f"Credentials for {found_credential.cred_application} deleted.")
+                else:
+                    print(f"Credentials Not Found for {cred_application}!")
+                    print("Press Enter to continue")
+                    input() 
         elif short_code == 'ex':
                 print("Exiting the password locker")
                 break
