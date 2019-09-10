@@ -1,7 +1,7 @@
 ## Password-Locker
 An application that allows users to create and store their passwords for various accounts.
 
-## Created by : finaclemence15
+## Created by https://github.com/finaclemence15
 08/9/2019
 
 ### Description
