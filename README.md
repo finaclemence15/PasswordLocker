@@ -1,7 +1,7 @@
 ## Password-Locker
 An application that allows users to create and store their passwords for various accounts.
 
-## Created by finaclemence15
+## Created by https://github.com/finaclemence15
 08/9/2019
 
 ### Description
@@ -25,8 +25,8 @@ Run chmod +x run.py in the terminal.
 Run the ./run.py script on the terminal to open.
 
 ## Technologies Used
-Python 3.6
-Git version Control
+* Python 3.6
+* Git version Control
 ## Support and contact details
 
 * Email:finaclemence15@gmail.com
